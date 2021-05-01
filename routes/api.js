@@ -6,15 +6,18 @@ const ConvertHandler = require("../controllers/convertHandler.js");
 module.exports = function (app) {
   let convertHandler = new ConvertHandler();
   app.get("/api/convert", (req, res) => {
-    let initNum = convertHandler.getNum(req.body.test);
-    let unit = convertHandler.getUnit(req.body.test).toLowerCase();
+    let initNum = convertHandler.getNum(req.query.input);
+    let unit = convertHandler.getUnit(req.query.input).toLowerCase();
+    if (unit === "l") {
+      unit = "L";
+    }
     let retUnit = convertHandler.getReturnUnit(unit);
     let result;
     if (initNum && retUnit) {
       let initUnit = convertHandler.spellOutUnit(unit);
       let returnUnit = convertHandler.spellOutUnit(retUnit);
       let returnNum = convertHandler.convert(initNum, unit);
-      resultString = convertHandler.getString(
+      let resultString = convertHandler.getString(
         initNum,
         initUnit,
         returnNum,

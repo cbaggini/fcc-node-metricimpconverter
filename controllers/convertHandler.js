@@ -5,7 +5,7 @@ function ConvertHandler() {
       result = "";
     } else if (result.includes("/")) {
       let split = result.split("/");
-      result = parseInt(split[0], 10) / parseInt(split[1], 10);
+      result = parseFloat(split[0], 10) / parseFloat(split[1], 10);
     }
     return parseFloat(result);
   };
@@ -17,8 +17,8 @@ function ConvertHandler() {
 
   this.getReturnUnit = function (initUnit) {
     const unitDict = {
-      gal: "l",
-      l: "gal",
+      gal: "L",
+      L: "gal",
       mi: "km",
       km: "mi",
       lbs: "kg",
@@ -31,7 +31,7 @@ function ConvertHandler() {
   this.spellOutUnit = function (unit) {
     const unitDict = {
       gal: "gallons",
-      l: "liters",
+      L: "liters",
       mi: "miles",
       km: "kilometers",
       lbs: "pounds",
@@ -48,7 +48,7 @@ function ConvertHandler() {
     let result;
     if (initUnit === "gal") {
       result = initNum * galToL;
-    } else if (initUnit === "l") {
+    } else if (initUnit === "L") {
       result = initNum / galToL;
     } else if (initUnit === "mi") {
       result = initNum * miToKm;
