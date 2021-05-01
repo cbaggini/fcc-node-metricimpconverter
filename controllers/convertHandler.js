@@ -1,7 +1,7 @@
 function ConvertHandler() {
   this.getNum = function (input) {
     let result = input.split(/[a-zA-Z]/);
-    return result[0];
+    return result[0] ? parseFloat(result[0]) : 1;
   };
 
   this.getUnit = function (input) {
@@ -40,8 +40,20 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     let result;
-
-    return result;
+    if (initUnit === "gal") {
+      result = initNum * galToL;
+    } else if (initUnit === "l") {
+      result = initNum / galToL;
+    } else if (initUnit === "mi") {
+      result = initNum * miToKm;
+    } else if (initUnit === "km") {
+      result = initNum / miToKm;
+    } else if (initNum === "lbs") {
+      result = initNum * lbsToKg;
+    } else if (initNum === "kg") {
+      result = initNum / lbsToKg;
+    }
+    return result.toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
