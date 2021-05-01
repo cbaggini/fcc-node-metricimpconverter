@@ -1,12 +1,18 @@
 function ConvertHandler() {
   this.getNum = function (input) {
-    let result = input.split(/[a-zA-Z]/);
-    return result[0] ? parseFloat(result[0]) : 1;
+    let result = input.split(/[a-zA-Z]/)[0] || "1";
+    if ((result.match(/\//g) || []).length > 1) {
+      result = "";
+    } else if (result.includes("/")) {
+      let split = result.split("/");
+      result = parseInt(split[0], 10) / parseInt(split[1], 10);
+    }
+    return parseFloat(result);
   };
 
   this.getUnit = function (input) {
     let result = input.match(/[a-zA-Z]+$/);
-    return result[0];
+    return result ? result[0] : "";
   };
 
   this.getReturnUnit = function (initUnit) {
@@ -57,9 +63,7 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result;
-
-    return result;
+    return `${initNum} ${initUnit} converts to ${returnNum} ${returnUnit}`;
   };
 }
 
