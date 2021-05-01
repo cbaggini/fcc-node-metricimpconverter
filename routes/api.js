@@ -7,6 +7,7 @@ module.exports = function (app) {
   let convertHandler = new ConvertHandler();
   app.get("/api/convert", (req, res) => {
     console.log(convertHandler.getNum(req.body.test));
+    console.log(convertHandler.getUnit(req.body.test));
     res.send("ok");
   });
 };

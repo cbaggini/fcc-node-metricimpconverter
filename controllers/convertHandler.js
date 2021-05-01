@@ -5,9 +5,8 @@ function ConvertHandler() {
   };
 
   this.getUnit = function (input) {
-    let result;
-
-    return result;
+    let result = input.match(/[a-zA-Z]+$/);
+    return result[0];
   };
 
   this.getReturnUnit = function (initUnit) {
