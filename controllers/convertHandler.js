@@ -11,8 +11,8 @@ function ConvertHandler() {
 
   this.getReturnUnit = function (initUnit) {
     const unitDict = {
-      gal: "L",
-      L: "gal",
+      gal: "l",
+      l: "gal",
       mi: "km",
       km: "mi",
       lbs: "kg",
@@ -23,8 +23,15 @@ function ConvertHandler() {
   };
 
   this.spellOutUnit = function (unit) {
-    let result;
-
+    const unitDict = {
+      gal: "gallons",
+      l: "liters",
+      mi: "miles",
+      km: "kilometers",
+      lbs: "pounds",
+      kg: "kilograms",
+    };
+    let result = unitDict[unit] ? unitDict[unit] : "";
     return result;
   };
 
