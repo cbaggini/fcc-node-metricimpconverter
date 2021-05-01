@@ -54,9 +54,9 @@ function ConvertHandler() {
       result = initNum * miToKm;
     } else if (initUnit === "km") {
       result = initNum / miToKm;
-    } else if (initNum === "lbs") {
+    } else if (initUnit === "lbs") {
       result = initNum * lbsToKg;
-    } else if (initNum === "kg") {
+    } else if (initUnit === "kg") {
       result = initNum / lbsToKg;
     }
     return result.toFixed(5);
