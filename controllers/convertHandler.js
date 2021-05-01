@@ -10,8 +10,15 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function (initUnit) {
-    let result;
-
+    const unitDict = {
+      gal: "L",
+      L: "gal",
+      mi: "km",
+      km: "mi",
+      lbs: "kg",
+      kg: "lbs",
+    };
+    let result = unitDict[initUnit] ? unitDict[initUnit] : "";
     return result;
   };
 
