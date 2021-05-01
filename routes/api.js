@@ -26,7 +26,7 @@ module.exports = function (app) {
       result = {
         initNum: initNum,
         initUnit: unit,
-        returnNum: returnNum,
+        returnNum: parseFloat(returnNum),
         returnUnit: retUnit,
         string: resultString,
       };

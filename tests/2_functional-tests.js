@@ -14,7 +14,7 @@ suite("Functional Tests", function () {
         assert.equal(res.status, 200);
         assert.equal(
           res.text,
-          '{"initNum":10,"initUnit":"L","returnNum":"2.64172","returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}'
+          '{"initNum":10,"initUnit":"L","returnNum":2.64172,"returnUnit":"gal","string":"10 liters converts to 2.64172 gallons"}'
         );
         done();
       });
@@ -57,7 +57,7 @@ suite("Functional Tests", function () {
         assert.equal(res.status, 200);
         assert.equal(
           res.text,
-          '{"initNum":1,"initUnit":"kg","returnNum":"2.20462","returnUnit":"lbs","string":"1 kilograms converts to 2.20462 pounds"}'
+          '{"initNum":1,"initUnit":"kg","returnNum":2.20462,"returnUnit":"lbs","string":"1 kilograms converts to 2.20462 pounds"}'
         );
         done();
       });
